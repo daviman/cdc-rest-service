@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sorint.demo</groupId>
+  <artifactId>cdc-rest-service</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>cdc-rest-service</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <pado.version>0.5.0-B1-SNAPSHOT</pado.version>
+    <hazelcast.version>4.0.3</hazelcast.version>
+    <avro.version>1.9.2</avro.version>
+    <skipTests>true</skipTests>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Hazelcast -->
+    <dependency>
+      <groupId>com.hazelcast</groupId>
+      <artifactId>hazelcast-all</artifactId>
+      <version>${hazelcast.version}</version>
+    </dependency>
+    <!-- Avro -->
+    <dependency>
+      <groupId>org.apache.avro</groupId>
+      <artifactId>avro</artifactId>
+      <version>${avro.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.avro</groupId>
+      <artifactId>avro-tools</artifactId>
+      <version>${avro.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.avro</groupId>
+      <artifactId>avro-compiler</artifactId>
+      <version>${avro.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.esotericsoftware</groupId>
+      <artifactId>kryo</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>2.1.1</version>
+    </dependency>
+
+    <!-- <dependency> <groupId>com.netcrest.pado</groupId> <artifactId>pado-core</artifactId>
+        <version>${pado.version}</version> </dependency> -->
+<!--    <dependency>-->
+<!--      <groupId>com.netcrest.pado</groupId>-->
+<!--      <artifactId>pado-tools</artifactId>-->
+<!--      <version>${pado.version}</version>-->
+<!--    </dependency>-->
+
+            <dependency>
+                <groupId>com.sorint.demo</groupId>
+                <artifactId>services.data</artifactId>
+                <version>1.0</version>
+                <systemPath>${project.basedir}/ext-lib/service-data.jar</systemPath>
+    <!--            <systemPath>./ext-lib/service-data.jar</systemPath>-->
+                <scope>system</scope>
+            </dependency>
+  </dependencies>
+</project>
