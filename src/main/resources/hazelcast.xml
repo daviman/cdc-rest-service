@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+                               http://www.hazelcast.com/schema/config/hazelcast-config-4.0.xsd"
+           xmlns="http://www.hazelcast.com/schema/config">
+
+    <properties>
+<!--        <property name="hazelcast.logging.type">log4j</property>-->
+    </properties>
+<cluster-name>dev</cluster-name>
+    <network>
+        <port auto-increment="true">5710</port>
+        <join>
+            <multicast enabled="false"/>
+            <tcp-ip enabled="true">
+                <member>127.0.0.1:5710</member>
+                <member>127.0.0.1:5711</member>
+                <member>127.0.0.1:5712</member>
+            </tcp-ip>
+        </join>
+        <interfaces>
+            <interface>127.0.0.1</interface>
+        </interfaces>
+    </network>
+    <serialization>
+        <serializers>
+            <global-serializer override-java-serialization="false">
+                com.sorint.demo.service.data.avro.KryoSerializer
+            </global-serializer>
+        </serializers>
+    </serialization>
+</hazelcast>

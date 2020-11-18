@@ -1,79 +1,249 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.sorint.demo</groupId>
-  <artifactId>cdc-rest-service</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>cdc-rest-service</name>
-  <url>http://maven.apache.org</url>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sorint.demo</groupId>
+    <artifactId>cdc-rest-service</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>cdc-rest-service</name>
+    <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <pado.version>0.5.0-B1-SNAPSHOT</pado.version>
-    <hazelcast.version>4.0.3</hazelcast.version>
-    <avro.version>1.9.2</avro.version>
-    <skipTests>true</skipTests>
-  </properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <relativePath/>
+    </parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+<!--        <profiles>-->
+<!--            <profile>-->
+<!--                <id>openshift</id>-->
+<!--                <dependencyManagement>-->
+<!--                    <dependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>org.springframework.cloud</groupId>-->
+<!--                            <artifactId>spring-cloud-kubernetes-dependencies</artifactId>-->
+<!--                            <version>0.3.0.RELEASE</version>-->
+<!--                            <type>pom</type>-->
+<!--                            <scope>import</scope>-->
+<!--                        </dependency>-->
+<!--                        <dependency>-->
+<!--                            <groupId>org.springframework.cloud</groupId>-->
+<!--                            <artifactId>spring-cloud-dependencies</artifactId>-->
+<!--                            <version>Greenwich.RELEASE</version>-->
+<!--                            <type>pom</type>-->
+<!--                            <scope>import</scope>-->
+<!--                        </dependency>-->
+<!--                    </dependencies>-->
+<!--                </dependencyManagement>-->
 
-    <!-- Hazelcast -->
-    <dependency>
-      <groupId>com.hazelcast</groupId>
-      <artifactId>hazelcast-all</artifactId>
-      <version>${hazelcast.version}</version>
-    </dependency>
-    <!-- Avro -->
-    <dependency>
-      <groupId>org.apache.avro</groupId>
-      <artifactId>avro</artifactId>
-      <version>${avro.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.avro</groupId>
-      <artifactId>avro-tools</artifactId>
-      <version>${avro.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.avro</groupId>
-      <artifactId>avro-compiler</artifactId>
-      <version>${avro.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.esotericsoftware</groupId>
-      <artifactId>kryo</artifactId>
-      <version>4.0.0</version>
-    </dependency>
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>org.springframework.cloud</groupId>-->
+<!--                        <artifactId>spring-cloud-starter-kubernetes-config</artifactId>-->
+<!--                    </dependency>-->
+<!--                    <dependency>-->
+<!--                        <groupId>org.springframework.boot</groupId>-->
+<!--                        <artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </profile>-->
+<!--        </profiles>-->
 
-    <!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
-    <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
-      <version>2.1.1</version>
-    </dependency>
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pado.version>0.5.0-B1-SNAPSHOT</pado.version>
+        <hazelcast.version>4.0.3</hazelcast.version>
+        <avro.version>1.9.2</avro.version>
+        <skipTests>true</skipTests>
+    </properties>
 
-    <!-- <dependency> <groupId>com.netcrest.pado</groupId> <artifactId>pado-core</artifactId>
-        <version>${pado.version}</version> </dependency> -->
-<!--    <dependency>-->
-<!--      <groupId>com.netcrest.pado</groupId>-->
-<!--      <artifactId>pado-tools</artifactId>-->
-<!--      <version>${pado.version}</version>-->
-<!--    </dependency>-->
+    <dependencies>
 
-            <dependency>
-                <groupId>com.sorint.demo</groupId>
-                <artifactId>services.data</artifactId>
-                <version>1.0</version>
-                <systemPath>${project.basedir}/ext-lib/service-data.jar</systemPath>
-    <!--            <systemPath>./ext-lib/service-data.jar</systemPath>-->
-                <scope>system</scope>
-            </dependency>
-  </dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-api</artifactId>-->
+        <!--            <version>1.7.30</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>log4j</groupId>-->
+        <!--            <artifactId>log4j</artifactId>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-log4j12</artifactId>-->
+        <!--            <version>1.7.30</version>-->
+        <!--        </dependency>-->
+
+        <!-- Hazelcast -->
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-all</artifactId>
+            <version>${hazelcast.version}</version>
+        </dependency>
+
+        <!--                <dependency>-->
+        <!--                    <groupId>org.apache.avro</groupId>-->
+        <!--                    <artifactId>avro</artifactId>-->
+        <!--                    <version>${avro.version}</version>-->
+
+        <!--                    <exclusions>-->
+        <!--                        <exclusion>-->
+        <!--                            <groupId>org.slf4j</groupId>-->
+        <!--                            <artifactId>slf4j-api</artifactId>-->
+        <!--                        </exclusion>-->
+        <!--                        <exclusion>-->
+        <!--                            <groupId>log4j</groupId>-->
+        <!--                            <artifactId>log4j</artifactId>-->
+        <!--                        </exclusion>-->
+        <!--                    </exclusions>-->
+
+        <!--                </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-tools</artifactId>
+            <version>${avro.version}</version>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            </exclusions>
+
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.avro</groupId>-->
+        <!--            <artifactId>avro-compiler</artifactId>-->
+        <!--            <version>${avro.version}</version>-->
+
+        <!--            <exclusions>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.slf4j</groupId>-->
+        <!--                    <artifactId>slf4j-api</artifactId>-->
+        <!--                </exclusion>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>log4j</groupId>-->
+        <!--                    <artifactId>log4j</artifactId>-->
+        <!--                </exclusion>-->
+        <!--            </exclusions>-->
+
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/jakarta.ws.rs/jakarta.ws.rs-api -->
+        <!--        <dependency>-->
+        <!--            <groupId>jakarta.ws.rs</groupId>-->
+        <!--            <artifactId>jakarta.ws.rs-api</artifactId>-->
+        <!--            <version>2.1.2</version>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.glassfish.jersey.core</groupId>-->
+        <!--            <artifactId>jersey-client</artifactId>-->
+        <!--            <version>2.8</version>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.sorint.demo</groupId>
+            <artifactId>services.data</artifactId>
+            <version>1.0</version>
+            <systemPath>${project.basedir}/ext-lib/service-data.jar</systemPath>
+            <!--            <systemPath>./ext-lib/service-data.jar</systemPath>-->
+            <scope>system</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                    <artifactId>spring-boot-starter-logging</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.6</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
