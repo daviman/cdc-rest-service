@@ -172,9 +172,9 @@
             <groupId>com.sorint.demo</groupId>
             <artifactId>services.data</artifactId>
             <version>1.0</version>
+            <scope>system</scope>
             <systemPath>${project.basedir}/ext-lib/service-data.jar</systemPath>
             <!--            <systemPath>./ext-lib/service-data.jar</systemPath>-->
-            <scope>system</scope>
         </dependency>
 
         <dependency>

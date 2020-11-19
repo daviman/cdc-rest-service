@@ -5,9 +5,12 @@
            xmlns="http://www.hazelcast.com/schema/config">
 
     <properties>
-<!--        <property name="hazelcast.logging.type">log4j</property>-->
+        <!--        <property name="hazelcast.logging.type">log4j</property>-->
+        <property name="hazelcast.phone.home.enabled">false</property>
     </properties>
-<cluster-name>dev</cluster-name>
+
+
+    <cluster-name>dev</cluster-name>
     <network>
         <port auto-increment="true">5710</port>
         <join>
