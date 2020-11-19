@@ -13,24 +13,19 @@
                                http://www.hazelcast.com/schema/client-config/hazelcast-client-config-4.0.xsd"
 	xmlns="http://www.hazelcast.com/schema/client-config">
 
+    <user-code-deployment enabled="true"></user-code-deployment>
+
+    <cluster-name>dev</cluster-name>
         <network>
-                <smart-routing>true</smart-routing>
-                <kubernetes enabled="true">
-<!--                        <service-dns>hazelcast-service.mdv1-cdc.svc.cluster.local</service-dns>-->
-                    <service-dns>hazelcast-service-mdv1-cdc.apps.7919-681139.cor00005-2.cna.ukcloud.com</service-dns>
-                </kubernetes>
+            <smart-routing>true</smart-routing>
+            <cluster-members>
+                <address>127.0.0.1:5710</address>
+                <address>127.0.0.1:5711</address>
+                <address>127.0.0.1:5712</address>
+            </cluster-members>
+
         </network>
-        <connection-strategy async-start="false" reconnect-mode="ON">
-           <connection-retry>
-                <initial-backoff-millis>1000</initial-backoff-millis>
-                <max-backoff-millis>50000</max-backoff-millis>
-                <!-- With multiplier 1, initiali-backoff is used throughout retries -->
-                <multiplier>1</multiplier>
-                <!-- Set cluster-connect-timeout-millis to a large value so that it retries forever -->
-                <cluster-connect-timeout-millis>1000000000</cluster-connect-timeout-millis>
-                <jitter>0.2</jitter>
-           </connection-retry>
-        </connection-strategy>
+
         <serialization>
                 <serializers>
                      <global-serializer override-java-serialization="false">

@@ -11,6 +11,12 @@
 
 
     <cluster-name>dev</cluster-name>
+
+    <user-code-deployment enabled="true">
+        <class-cache-mode>OFF</class-cache-mode>
+        <provider-mode>OFF</provider-mode>
+    </user-code-deployment>
+
     <network>
         <port auto-increment="true">5710</port>
         <join>
