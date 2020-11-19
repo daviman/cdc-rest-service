@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+oc new-app registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift~https://github.com/daviman/cdc-rest-service.git --name=cdc-rest-service

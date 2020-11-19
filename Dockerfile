@@ -23,4 +23,5 @@ RUN tar -xzf /tmp/cdc-rest-service-1.0-SNAPSHOT-cdc-rest-service-dist-assembly.t
 RUN rm /tmp/cdc-rest-service-1.0-SNAPSHOT-cdc-rest-service-dist-assembly.tar.gz
 
 # Run the jar file
-ENTRYPOINT ["java", "-classpath", "/cdc-rest-service-1.0-SNAPSHOT.jar:/lib", "-jar", "/cdc-rest-service-0.0.1-SNAPSHOT.jar", "com.sorint.demo.service.Application"]
+#ENTRYPOINT ["java", "-classpath", "/cdc-rest-service-1.0-SNAPSHOT.jar:/lib", "-jar", "/cdc-rest-service-0.0.1-SNAPSHOT.jar", "com.sorint.demo.service.Application"]
+ENTRYPOINT ["/bin/bash"]
