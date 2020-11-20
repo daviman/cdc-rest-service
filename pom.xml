@@ -15,40 +15,40 @@
         <relativePath/>
     </parent>
 
-<!--        <profiles>-->
-<!--            <profile>-->
-<!--                <id>openshift</id>-->
-<!--                <dependencyManagement>-->
-<!--                    <dependencies>-->
-<!--                        <dependency>-->
-<!--                            <groupId>org.springframework.cloud</groupId>-->
-<!--                            <artifactId>spring-cloud-kubernetes-dependencies</artifactId>-->
-<!--                            <version>0.3.0.RELEASE</version>-->
-<!--                            <type>pom</type>-->
-<!--                            <scope>import</scope>-->
-<!--                        </dependency>-->
-<!--                        <dependency>-->
-<!--                            <groupId>org.springframework.cloud</groupId>-->
-<!--                            <artifactId>spring-cloud-dependencies</artifactId>-->
-<!--                            <version>Greenwich.RELEASE</version>-->
-<!--                            <type>pom</type>-->
-<!--                            <scope>import</scope>-->
-<!--                        </dependency>-->
-<!--                    </dependencies>-->
-<!--                </dependencyManagement>-->
+    <profiles>
+        <profile>
+            <id>openshift</id>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-kubernetes-dependencies</artifactId>
+                        <version>0.3.0.RELEASE</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-dependencies</artifactId>
+                        <version>Greenwich.RELEASE</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
 
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>org.springframework.cloud</groupId>-->
-<!--                        <artifactId>spring-cloud-starter-kubernetes-config</artifactId>-->
-<!--                    </dependency>-->
-<!--                    <dependency>-->
-<!--                        <groupId>org.springframework.boot</groupId>-->
-<!--                        <artifactId>spring-boot-starter-actuator</artifactId>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-<!--            </profile>-->
-<!--        </profiles>-->
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-kubernetes-config</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-actuator</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
     <properties>
         <java.version>1.8</java.version>
@@ -165,25 +165,25 @@
             </plugin>
 
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.sorint.demo.service.Application</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id></id>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-jar-plugin</artifactId>-->
+<!--                <version>2.4</version>-->
+<!--                <configuration>-->
+<!--                    <archive>-->
+<!--                        <manifest>-->
+<!--                            <addClasspath>true</addClasspath>-->
+<!--                            <classpathPrefix>lib/</classpathPrefix>-->
+<!--                            <mainClass>com.sorint.demo.service.Application</mainClass>-->
+<!--                        </manifest>-->
+<!--                    </archive>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id></id>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
