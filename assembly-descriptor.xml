@@ -15,10 +15,10 @@
             <directory>${project.build.directory}/lib</directory>
             <outputDirectory>lib</outputDirectory>
 
-<!--            <includes>-->
-<!--                <include>service-data*</include>-->
-<!--                <include>*.jar</include>-->
-<!--            </includes>-->
+            <includes>
+                <include>lib/service-data*</include>
+                <include>*.jar</include>
+            </includes>
         </fileSet>
     </fileSets>
 </assembly>
