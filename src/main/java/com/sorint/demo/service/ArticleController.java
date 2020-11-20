@@ -27,4 +27,9 @@ public class ArticleController {
         return articleService.getItems(page, limit);
     }
 
+    @RequestMapping("/records")
+    public String getCount() {
+        return articleService.getCount();
+    }
+
 }

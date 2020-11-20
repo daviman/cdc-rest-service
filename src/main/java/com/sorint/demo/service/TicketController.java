@@ -25,4 +25,9 @@ public class TicketController {
     {
         return ticketService.getItems(page, limit);
     }
+
+    @RequestMapping("/records")
+    public String getCount() {
+        return ticketService.getCount();
+    }
 }

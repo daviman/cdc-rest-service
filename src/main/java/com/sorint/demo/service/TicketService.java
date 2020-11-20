@@ -4,8 +4,8 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IExecutorService;
 import com.hazelcast.map.IMap;
 import com.sorint.demo.service.data.avro.Ticket;
+import com.sorint.demo.service.model.CountRecord;
 import com.sorint.demo.service.model.PagePayload;
-import com.sorint.demo.service.remote.ArticleCallable;
 import com.sorint.demo.service.remote.TicketCallable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,5 +49,11 @@ public class TicketService {
             //do nothing;
         }
         return jsonResult;
+    }
+
+    public String getCount() {
+        IMap<Integer, Ticket> ticketMap = hazelcastInstance.getMap(ApplicationConstants.TicketsMapName);
+        CountRecord count = new CountRecord(ApplicationConstants.TicketsMapName, ticketMap.size());
+        return count.toJsonString();
     }
 }

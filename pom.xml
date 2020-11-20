@@ -164,26 +164,28 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-jar-plugin</artifactId>-->
-<!--                <version>2.4</version>-->
-<!--                <configuration>-->
-<!--                    <archive>-->
-<!--                        <manifest>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
 <!--                            <addClasspath>true</addClasspath>-->
-<!--                            <classpathPrefix>lib/</classpathPrefix>-->
-<!--                            <mainClass>com.sorint.demo.service.Application</mainClass>-->
-<!--                        </manifest>-->
-<!--                    </archive>-->
-<!--                </configuration>-->
+                            <addClasspath>false</addClasspath>
+<!--                            <classpathPrefix>lib/services.data-1.0-bin.jar:lib/</classpathPrefix>-->
+<!--                            <classpathPrefix>lib/services.data-1.0-bin.jar:lib/</classpathPrefix>-->
+                            <mainClass>com.sorint.demo.service.Application</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
 <!--                <executions>-->
 <!--                    <execution>-->
 <!--                        <id></id>-->
 <!--                    </execution>-->
 <!--                </executions>-->
-<!--            </plugin>-->
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
