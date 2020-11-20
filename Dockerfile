@@ -11,15 +11,15 @@ VOLUME /tmp
 EXPOSE 8080
 
 # The application's jar file
-
+ARG APP_HOME=/opt/cdc-app
 # Add the application's jar to the container
-RUN mkdir -p lib/
+RUN mkdir -p ${APP_HOME}/lib
 
-ADD target/cdc-rest-service-1.0-SNAPSHOT.jar.original cdc-rest-service-1.0-SNAPSHOT.jar
+ADD target/cdc-rest-service-1.0-SNAPSHOT.jar.original ${APP_HOME}/cdc-rest-service-1.0-SNAPSHOT.jar
 ADD target/cdc-rest-service-1.0-SNAPSHOT-cdc-rest-service-dist-assembly.tar.gz /tmp/cdc-rest-service-1.0-SNAPSHOT-cdc-rest-service-dist-assembly.tar.gz
 
-RUN cd lib/ && tar -xzf /tmp/cdc-rest-service-1.0-SNAPSHOT-cdc-rest-service-dist-assembly.tar.gz
-RUN rm /tmp/cdc-rest-service-1.0-SNAPSHOT-cdc-rest-service-dist-assembly.tar.gz
+RUN cd ${APP_HOME}/lib/ && tar -xzf /tmp/cdc-rest-service-1.0-SNAPSHOT-cdc-rest-service-dist-assembly.tar.gz
+RUN rm -f /tmp/cdc-rest-service-1.0-SNAPSHOT-cdc-rest-service-dist-assembly.tar.gz
 
 # Run the jar file
-ENTRYPOINT ["java", "-classpath", "/cdc-rest-service-1.0-SNAPSHOT.jar:/lib", "-jar", "/cdc-rest-service-0.0.1-SNAPSHOT.jar", "com.sorint.demo.service.Application"]
+ENTRYPOINT ["java", "-classpath", "${APP_HOME}/cdc-rest-service-1.0-SNAPSHOT.jar:${APP_HOME}/lib", "-jar", "${APP_HOME}/cdc-rest-service-0.0.1-SNAPSHOT.jar", "com.sorint.demo.service.Application"]
