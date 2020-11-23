@@ -22,9 +22,9 @@
         <join>
             <multicast enabled="false"/>
             <tcp-ip enabled="true">
-                <member>127.0.0.1:5710</member>
-                <member>127.0.0.1:5711</member>
-                <member>127.0.0.1:5712</member>
+                <member>10.0.0.68:5710</member>
+                <member>10.0.0.68:5711</member>
+                <member>10.0.0.68:5712</member>
             </tcp-ip>
         </join>
         <interfaces>
