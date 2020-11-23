@@ -13,13 +13,14 @@
                                http://www.hazelcast.com/schema/client-config/hazelcast-client-config-4.0.xsd"
         xmlns="http://www.hazelcast.com/schema/client-config">
 
-<user-code-deployment enabled="true">
-	<!--
+    <user-code-deployment enabled="true">
         <classNames>
-            <className>com.sorint.demo.service.remote.*</className>
-		</classNames>
-	-->
+            <className>com.sorint.demo.service.remote.ArticleCallable</className>
+            <className>com.sorint.demo.service.remote.TicketCallable</className>
+        </classNames>
+
     </user-code-deployment>
+
     <network>
         <smart-routing>true</smart-routing>
         <kubernetes enabled="true">

@@ -15,8 +15,10 @@
 
     <user-code-deployment enabled="true">
         <classNames>
-            <className>com.sorint.demo.service.remote.*</className>
+            <className>com.sorint.demo.service.remote.ArticleCallable</className>
+            <className>com.sorint.demo.service.remote.TicketCallable</className>
         </classNames>
+
     </user-code-deployment>
 
     <network>

@@ -115,7 +115,7 @@
             <artifactId>services.data</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <classifier>bin</classifier>
+<!--            <classifier>bin</classifier>-->
             <type>jar</type>
             <systemPath>${project.basedir}/ext-lib/service-data-1.0.jar</systemPath>
         </dependency>
