@@ -13,7 +13,11 @@
                                http://www.hazelcast.com/schema/client-config/hazelcast-client-config-4.0.xsd"
         xmlns="http://www.hazelcast.com/schema/client-config">
 
-    <user-code-deployment enabled="true"></user-code-deployment>
+    <user-code-deployment enabled="true">
+        <classNames>
+            <className>com.sorint.demo.service.remote.*</className>
+        </classNames>
+    </user-code-deployment>
 
     <network>
         <smart-routing>true</smart-routing>
