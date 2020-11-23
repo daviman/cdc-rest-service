@@ -17,6 +17,8 @@
         <classNames>
             <className>com.sorint.demo.service.remote.ArticleCallable</className>
             <className>com.sorint.demo.service.remote.TicketCallable</className>
+            <className>com.sorint.demo.service.model.CountRecord</className>
+            <className>com.sorint.demo.service.model.PagePayload</className>
         </classNames>
 
     </user-code-deployment>
