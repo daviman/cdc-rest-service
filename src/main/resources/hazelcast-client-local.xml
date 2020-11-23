@@ -8,30 +8,30 @@
 	OR CONDITIONS OF ANY KIND, either express or implied. ~ See the License for 
 	the specific language governing permissions and ~ limitations under the License. -->
 <hazelcast-client
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.hazelcast.com/schema/client-config
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.hazelcast.com/schema/client-config
                                http://www.hazelcast.com/schema/client-config/hazelcast-client-config-4.0.xsd"
-	xmlns="http://www.hazelcast.com/schema/client-config">
+        xmlns="http://www.hazelcast.com/schema/client-config">
 
     <user-code-deployment enabled="true"></user-code-deployment>
 
     <cluster-name>dev</cluster-name>
-        <network>
-            <smart-routing>true</smart-routing>
-            <cluster-members>
-                <address>10.0.0.68:5710</address>
-                <address>10.0.0.68:5711</address>
-                <address>10.0.0.68:5712</address>
-            </cluster-members>
+    <network>
+        <smart-routing>true</smart-routing>
+        <cluster-members>
+            <address>10.0.0.68:5710</address>
+            <address>10.0.0.68:5711</address>
+            <address>10.0.0.68:5712</address>
+        </cluster-members>
 
-        </network>
+    </network>
 
-        <serialization>
-                <serializers>
-                     <global-serializer override-java-serialization="false">
-                         com.sorint.demo.service.data.avro.KryoSerializer
-                     </global-serializer>
-                </serializers>
-        </serialization>
+    <serialization>
+        <serializers>
+            <global-serializer override-java-serialization="false">
+                com.sorint.demo.service.data.avro.KryoSerializer
+            </global-serializer>
+        </serializers>
+    </serialization>
 
 </hazelcast-client>
