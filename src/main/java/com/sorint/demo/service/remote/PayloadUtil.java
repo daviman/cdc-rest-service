@@ -1,13 +1,10 @@
 package com.sorint.demo.service.remote;
 
-import com.sorint.demo.service.data.avro.Article;
 import com.sorint.demo.service.model.PagePayload;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 public class PayloadUtil implements Serializable {
 
