@@ -43,11 +43,11 @@ public class ArticleService {
         try {
             jsonResult = task.get().toJsonString();
         } catch (InterruptedException e) {
-            //do nothing
+            e.printStackTrace();
         } catch (ExecutionException e) {
-            //do nothing
+            e.printStackTrace();
         } catch (Exception e) {
-            //do nothing;
+            e.printStackTrace();
         }
         return jsonResult;
     }

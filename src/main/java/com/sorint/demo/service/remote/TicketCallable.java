@@ -4,7 +4,6 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.map.IMap;
 import com.sorint.demo.service.ApplicationConstants;
-import com.sorint.demo.service.data.avro.Article;
 import com.sorint.demo.service.data.avro.Ticket;
 import com.sorint.demo.service.model.PagePayload;
 

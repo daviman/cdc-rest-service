@@ -8,10 +8,8 @@ import com.sorint.demo.service.data.avro.Article;
 import com.sorint.demo.service.model.PagePayload;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
-import java.util.stream.IntStream;
 
 public class ArticleCallable implements Callable<PagePayload>, Serializable, HazelcastInstanceAware {
 
