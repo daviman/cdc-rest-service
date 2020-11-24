@@ -19,14 +19,15 @@ public class TicketService {
     @Autowired
     private HazelcastInstance hazelcastInstance;
 
-    public String findByTicketId(String ticketIdString) {
-        IMap<Integer, Ticket> ticketMap = hazelcastInstance.getMap(ApplicationConstants.TicketsMapName);
-        Ticket ticket = ticketMap.get(Integer.valueOf(ticketIdString));
+    public String findByTicketId(String ticketId) {
+        IMap<String, Ticket> ticketMap = hazelcastInstance.getMap(ApplicationConstants.TicketsMapName);
+        Ticket ticket = ticketMap.get(ticketId);
         String jsonStr = "{}";
         try {
             jsonStr = ticket.toString();
         } catch(Exception e) {
-            System.out.println("Ticket with id: " + ticketIdString + " not found.");
+            e.printStackTrace();
+            System.out.println("Ticket with id: " + ticketId + " not found.");
         }
         return jsonStr;
     }
