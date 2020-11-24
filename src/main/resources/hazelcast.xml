@@ -13,8 +13,8 @@
     <cluster-name>dev</cluster-name>
 
     <user-code-deployment enabled="true">
-        <class-cache-mode>ETERNAL</class-cache-mode>
-        <provider-mode>LOCAL_AND_CACHED_CLASSES</provider-mode>
+        <class-cache-mode>OFF</class-cache-mode>
+        <provider-mode>OFF</provider-mode>
     </user-code-deployment>
 
     <network>
