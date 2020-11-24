@@ -23,12 +23,13 @@ public class ArticleService {
 
     public String findByTicketIdAndArticleId(int ticketId, int articleId) {
         IMap<ArticleKey, Article> articleMap = hazelcastInstance.getMap(ApplicationConstants.ArticlesMapName);
-        ArticleKey articleKey = new ArticleKey(ticketId, articleId);
+        ArticleKey articleKey = new ArticleKey(articleId, ticketId);
         Article ticket = articleMap.get(articleKey);
         String jsonStr = "{}";
         try {
             jsonStr = ticket.toString();
         } catch(Exception e) {
+            e.printStackTrace();
             System.out.println(String.format("Article with ticketId: %d and articleId: %d not found.", ticketId, articleId));
         }
         return jsonStr;
