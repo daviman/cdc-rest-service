@@ -4,6 +4,7 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IExecutorService;
 import com.hazelcast.map.IMap;
 import com.sorint.demo.service.data.avro.Article;
+import com.sorint.demo.service.data.avro.ArticleKey;
 import com.sorint.demo.service.data.avro.Ticket;
 import com.sorint.demo.service.model.CountRecord;
 import com.sorint.demo.service.model.PagePayload;
@@ -20,14 +21,15 @@ public class ArticleService {
     @Autowired
     private HazelcastInstance hazelcastInstance;
 
-    public String findByArticleId(String articleIdString) {
-        IMap<Integer, Article> articleMap = hazelcastInstance.getMap(ApplicationConstants.ArticlesMapName);
-        Article ticket = articleMap.get(Integer.valueOf(articleIdString));
+    public String findByTicketIdAndArticleId(int ticketId, int articleId) {
+        IMap<ArticleKey, Article> articleMap = hazelcastInstance.getMap(ApplicationConstants.ArticlesMapName);
+        ArticleKey articleKey = new ArticleKey(ticketId, articleId);
+        Article ticket = articleMap.get(articleKey);
         String jsonStr = "{}";
         try {
             jsonStr = ticket.toString();
         } catch(Exception e) {
-            System.out.println("Article with id: " + articleIdString + " not found.");
+            System.out.println(String.format("Article with ticketId: %d and articleId: %d not found.", ticketId, articleId));
         }
         return jsonStr;
     }
