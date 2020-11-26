@@ -3,3 +3,4 @@
 **/target/
 **/save/
 **/pom-save.xml
+**/*.DS_STORE

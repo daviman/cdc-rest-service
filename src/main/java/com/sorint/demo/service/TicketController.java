@@ -2,8 +2,10 @@ package com.sorint.demo.service;
 
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.core.MediaType;
+
 @RestController
-@RequestMapping("/tickets")
+@RequestMapping(value = "/tickets", method=RequestMethod.GET, produces= MediaType.APPLICATION_JSON)
 public class TicketController {
 
     private TicketService ticketService;
