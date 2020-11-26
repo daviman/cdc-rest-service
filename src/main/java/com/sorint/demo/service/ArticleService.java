@@ -12,6 +12,7 @@ import com.sorint.demo.service.remote.ArticleCallable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -27,6 +28,8 @@ public class ArticleService {
         Article ticket = articleMap.get(articleKey);
         String jsonStr = "{}";
         try {
+            String asciiEncodedString = new String(ticket.getABody().toString().getBytes(), StandardCharsets.US_ASCII);
+            ticket.setABody(asciiEncodedString);
             jsonStr = ticket.toString();
         } catch(Exception e) {
             e.printStackTrace();
