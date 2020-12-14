@@ -64,6 +64,7 @@ public class PagePayload implements Serializable {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
+            json = json.replaceAll("\\p{Cntrl}", "?");
             return json;
         } catch(Exception e) {
             return e.getLocalizedMessage();
