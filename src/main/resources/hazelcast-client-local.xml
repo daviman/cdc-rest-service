@@ -27,9 +27,9 @@
     <network>
         <smart-routing>true</smart-routing>
         <cluster-members>
-            <address>10.0.0.68:5710</address>
-            <address>10.0.0.68:5711</address>
-            <address>10.0.0.68:5712</address>
+            <address>127.0.0.1:5710</address>
+            <address>127.0.0.1:5711</address>
+            <address>127.0.0.1:5712</address>
         </cluster-members>
 
     </network>

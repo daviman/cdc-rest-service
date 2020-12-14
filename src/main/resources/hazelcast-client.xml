@@ -21,7 +21,6 @@
             <className>com.sorint.demo.service.model.CountRecord</className>
             <className>com.sorint.demo.service.model.PagePayload</className>
         </classNames>
-
     </user-code-deployment>
 
     <network>
