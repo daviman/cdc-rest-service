@@ -113,11 +113,11 @@
         <dependency>
             <groupId>com.sorint.demo</groupId>
             <artifactId>services.data</artifactId>
-            <version>1.0</version>
+            <version>1.0.0</version>
             <scope>system</scope>
 <!--            <classifier>bin</classifier>-->
             <type>jar</type>
-            <systemPath>${project.basedir}/ext-lib/service-data-1.0.jar</systemPath>
+            <systemPath>${project.basedir}/ext-lib/service-data-1.0.0jar</systemPath>
         </dependency>
 
         <dependency>

@@ -5,6 +5,8 @@ import org.codehaus.jackson.map.ObjectMapper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PagePayload implements Serializable {
 
@@ -64,10 +66,20 @@ public class PagePayload implements Serializable {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
-            json = json.replaceAll("\\p{Cntrl}", "?");
+            json = cleanTheText(json);
+            //.replaceAll("\\p{Cntrl}", "?");
             return json;
         } catch(Exception e) {
             return e.getLocalizedMessage();
         }
+    }
+
+    private static Pattern pattern = Pattern.compile("[^ -~]");
+    private static String cleanTheText(String text) {
+        Matcher matcher = pattern.matcher(text);
+        if ( matcher.find() ) {
+            text = text.replace(matcher.group(0), "");
+        }
+        return text;
     }
 }
